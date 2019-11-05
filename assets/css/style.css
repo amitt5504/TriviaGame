@@ -1,0 +1,48 @@
+#top {
+    margin: auto;
+    padding-bottom: 10px;
+}
+
+/* Bolds the correct answer on the page */
+#correct-answer {
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+/* Sizing for the different choices for the question */
+.choice {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: 20px;
+}
+
+/* Changes the cursor to a pointer and sets the background white on hover  */
+.choice:hover {
+    cursor: pointer;
+    background-color: white;
+}
+
+/* Adding a shadow/stroke outline */
+#game-over,
+#final,
+#question {
+    color: black;
+    text-shadow: 1px 1px #ffffff;
+}
+
+/* Red outline */
+#time {
+    text-shadow: 1px 1px #ff0000;
+    color: black;
+}
+
+/* Background image */
+body {
+    background-image: url('../images/old-paper-background.jpg');
+}
+
+#start-button, #refresh-button {
+    background-color: black;
+    color: white;
+}

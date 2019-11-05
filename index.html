@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>It's Trivia Time!!</title>
+
+    <!-- jQuery and JS scripts -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+    <!-- Bootstrap and Custom CSS linking -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- Row displays the following text on page load, jQuery updates once quiz begins -->
+        <div class="row justify-content-center" id="top">
+            <h1 id="game-over">Click Start to Begin the Trivia Game!</h1>
+        </div>
+
+        <!-- Row for the start and restart buttons -->
+        <div class="row justify-content-center">
+            <div class="col-md-2"></div>
+            <div class="col-md-8" style="text-align:center;">
+                <button id="start-button" type="button" class="btn btn-outline-dark">Start</button>
+                <button id="refresh-button" type="button" class="btn btn-outline-dark">Reload Quiz</button>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        <br>
+        <!-- Row displays the time remaining, question, answer choices -->
+        <div class="row justify-content-center">
+            <div class="col-md-2"></div>
+            <div class="col-md-8" style="text-align:center;">
+                <!-- Displays in the end the number of correct/incorrect/unaswered -->
+                <div id="final"></div>
+                <br>
+                <h2 id="question"></h2>
+                <h4 id="time"></h4>
+                <div id="options"></div>
+
+                <!-- Updates based on the user's choice -->
+                <p id="correct-answer"></p>
+                <br>
+                <!-- Div updates to display an image of the correct answer -->
+                <div id="image"></div>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+
+    </div>
+</body>
+</html>
