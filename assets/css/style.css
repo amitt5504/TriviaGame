@@ -42,7 +42,8 @@ body {
     background-image: url('../images/old-paper-background.jpg');
 }
 
-#start-button, #refresh-button {
+#start-button,
+#refresh-button {
     background-color: black;
     color: white;
 }

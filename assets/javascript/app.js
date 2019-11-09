@@ -6,12 +6,12 @@ $(document).ready(function () {
     var unAnswered = 0;
     var timeRemaining = 15;
     var intervalID;
-    var questionsIndex= 0; 
+    var questionsIndex = 0;
     var answered = false;
     var correctAnswer;
 
-// Array that holds the different questions, answer choices, correct answer index and image
-var questions = [{
+    // Array that holds the different questions, answer choices, correct answer index and image
+    var questions = [{
         question: "What does HTML stand for?",
         answer: ["Hyper Talent Markings Lookup", "High Type Mega Lunge", "HyperText Markup Language", "Hidden Tounge Mister Lingo"],
         correctAns: "2",
@@ -34,7 +34,7 @@ var questions = [{
     }];
 
     // Clears the page to reload the quiz
-    function reloadQuiz(){
+    function reloadQuiz() {
         $('#refresh-button').hide();
         questionsIndex = 0;
         $("#game-over").text("Select the correct answer!!");
@@ -55,7 +55,7 @@ var questions = [{
 
     // Updates the page to the next question
     function nextQuestion() {
-        answered = false; 
+        answered = false;
         // User is given 15 seconds to answer
         timeRemaining = 15;
         intervalID = setInterval(timer, 1000);
@@ -77,11 +77,11 @@ var questions = [{
         $("p").click(function () {
             var id = $(this).attr('id');
             if (id === correctAnswer) {
-                answered = true; 
+                answered = true;
                 $("#correct-answer").html("You chose the correct answer of " + "<b>" + questions[questionsIndex].answer[correctAnswer] + "</b>" + "!");
                 correctUpdate();
             } else {
-                answered = true; 
+                answered = true;
                 $("#correct-answer").html("You chose " + "<b>" + questions[questionsIndex].answer[id] + "</b>" + " but the correct answer is  " + "<b>" + questions[questionsIndex].answer[correctAnswer] + "</b>" + "!");
                 incorrectUpdate();
             }
@@ -104,18 +104,21 @@ var questions = [{
         }
     }
 
+    // If the answer is correct, increment the counter, clear time and update page
     function correctUpdate() {
         correct++;
         $("#time").text(" ");
         updatePage();
     }
 
+    // If the answer is incorrect, increment the counter, clear time and update page
     function incorrectUpdate() {
         incorrect++;
         $("#time").text(" ");
         updatePage();
     }
 
+    // If the question was not answered, increment the counter, clear time and update page
     function unAnsweredUpdate() {
         unAnswered++;
         $("#time").text(" ");
@@ -126,8 +129,8 @@ var questions = [{
         // Clears the answer options
         $("#options").empty();
         // Displays the answer image
-        $("#image").html("<img src='"+ questions[questionsIndex].image +"' class='img-fluid'>");
-        questionsIndex++; 
+        $("#image").html("<img src='" + questions[questionsIndex].image + "' class='img-fluid'>");
+        questionsIndex++;
         // Condition if questions remain, load the new question and clear the previous correct answer
         // and image after 3.5 seconds
         if (questionsIndex < questions.length) {
@@ -137,8 +140,8 @@ var questions = [{
                 $("#correct-answer").empty();
                 $("#image img:last-child").remove();
             }, 3500);
-        // if no more questions, clears the page and updates with the score
-        // also shows the refresh button to start the quiz over   
+            // if no more questions, clears the page and updates with the score
+            // also shows the refresh button to start the quiz over   
         } else {
             setTimeout(function () {
                 $("#question").empty();
@@ -148,14 +151,14 @@ var questions = [{
                 $("#correct-answer").empty();
                 $("#image").empty();
                 var score = correct / questions.length;
-                score = score*100;
-                $("#game-over").html("The game has ended. Your score is " + "<b>" +score + "</b>" +"%");
+                score = score * 100;
+                $("#game-over").html("The game has ended. Your score is " + "<b>" + score + "</b>" + "%");
                 $("#final").append('<h4>Correct Answers: ' + correct + '</h4>');
                 $("#final").append('<h4>Incorrect Answers: ' + incorrect + '</h4>');
                 $("#final").append('<h4>Unanswered Questions: ' + unAnswered + '</h4>');
 
                 $("#refresh-button").show();
-        }, 3500);
+            }, 3500);
         }
     };
 
